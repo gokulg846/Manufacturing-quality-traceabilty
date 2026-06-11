@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: mart_part_quality_summary
+    description: "Gold mart with one row per part and complete quality traceability."
+    columns:
+      - name: part_id
+        tests: [not_null, unique]
+      - name: production_date
+        tests: [not_null]
+      - name: machine_id
+        tests: [not_null]
+      - name: batch_id
+        tests: [not_null]
+      - name: spindle_speed
+        tests:
+          - measurement_between:
+              min_value: 8000
+              max_value: 14000
+      - name: feed_rate
+        tests:
+          - measurement_between:
+              min_value: 300
+              max_value: 1000
+      - name: coolant_temp
+        tests:
+          - measurement_between:
+              min_value: 18
+              max_value: 45
+      - name: cycle_time
+        tests:
+          - measurement_between:
+              min_value: 45
+              max_value: 180
+      - name: hardness
+        tests:
+          - measurement_between:
+              min_value: 120
+              max_value: 280
+      - name: tensile_strength
+        tests:
+          - measurement_between:
+              min_value: 450
+              max_value: 900
+      - name: defect_flag
+        tests: [not_null]
+      - name: defect_root_cause
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['dimension', 'torque', 'material', 'unknown', 'none']
+      - name: composite_quality_score
+        tests:
+          - not_null
+          - measurement_between:
+              min_value: 0
+              max_value: 100

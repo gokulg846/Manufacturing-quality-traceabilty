@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+lakehouse/
+logs/
+target/
+dbt_packages/
+.user.yml
+.env
+.DS_Store
