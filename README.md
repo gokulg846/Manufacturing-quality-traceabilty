@@ -131,8 +131,8 @@ python -m orchestration.flow --date 2026-06-11 --parts 500
 Build and test the lakehouse:
 
 ```bash
-dbt --profiles-dir . run
-dbt --profiles-dir . test
+dbt run --profiles-dir .
+dbt test --profiles-dir .
 ```
 
 Launch the dashboard:
@@ -150,8 +150,8 @@ python -m pipelines.ingest --date 2026-06-08 --parts 450
 python -m pipelines.ingest --date 2026-06-09 --parts 475
 python -m pipelines.ingest --date 2026-06-10 --parts 525
 python -m pipelines.ingest --date 2026-06-11 --parts 500
-dbt --profiles-dir . run
-dbt --profiles-dir . test
+dbt run --profiles-dir .
+dbt test --profiles-dir .
 ```
 
 ## Dashboard capabilities

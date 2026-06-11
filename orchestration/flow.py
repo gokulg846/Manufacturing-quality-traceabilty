@@ -38,7 +38,7 @@ def daily_quality_traceability_flow(
 
     logger = get_run_logger()
     prod_date = coerce_production_date(production_date)
-    logger.info("Starting daily ingestion for %s with %,d parts", prod_date, part_count)
+    logger.info("Starting daily ingestion for %s with %s parts", prod_date, f"{part_count:,}")
     results = ingest_bronze_sources(prod_date, part_count, seed, lakehouse_root)
 
     serializable_results = []
