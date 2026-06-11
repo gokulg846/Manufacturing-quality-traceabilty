@@ -1,0 +1,8 @@
+duckdb
+dbt-duckdb
+prefect
+pandas
+faker
+streamlit
+pyarrow
+numpy

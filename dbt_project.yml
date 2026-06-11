@@ -1,0 +1,28 @@
+name: manufacturing_quality_traceability
+version: 1.0.0
+config-version: 2
+
+profile: manufacturing_quality_traceability
+
+model-paths: ["dbt/models"]
+test-paths: ["dbt/tests"]
+macro-paths: ["dbt/macros"]
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  lakehouse_root: "{{ env_var('LAKEHOUSE_ROOT', 'lakehouse') }}"
+
+models:
+  manufacturing_quality_traceability:
+    bronze:
+      +materialized: view
+      +schema: bronze
+    silver:
+      +materialized: table
+      +schema: silver
+    gold:
+      +materialized: table
+      +schema: gold
